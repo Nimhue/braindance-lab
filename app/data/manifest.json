@@ -1,0 +1,288 @@
+{
+ "demo": true,
+ "generated_at": "2026-10-27T13:38:05+00:00",
+ "source": "scripts/make_demo_data.py (synthetic)",
+ "metrics": "metrics.json",
+ "tapes": [
+  {
+   "id": "sleep-SC4001_n1",
+   "kind": "sleep",
+   "subject": "S00",
+   "session": "SC4001_n1",
+   "title": "S00 \u00b7 night 1",
+   "file": "sleep-SC4001_n1.json"
+  },
+  {
+   "id": "sleep-SC4011_n1",
+   "kind": "sleep",
+   "subject": "S01",
+   "session": "SC4011_n1",
+   "title": "S01 \u00b7 night 1",
+   "file": "sleep-SC4011_n1.json"
+  },
+  {
+   "id": "sleep-SC4021_n1",
+   "kind": "sleep",
+   "subject": "S02",
+   "session": "SC4021_n1",
+   "title": "S02 \u00b7 night 1",
+   "file": "sleep-SC4021_n1.json"
+  },
+  {
+   "id": "sleep-SC4031_n1",
+   "kind": "sleep",
+   "subject": "S03",
+   "session": "SC4031_n1",
+   "title": "S03 \u00b7 night 1",
+   "file": "sleep-SC4031_n1.json"
+  },
+  {
+   "id": "sleep-SC4041_n1",
+   "kind": "sleep",
+   "subject": "S04",
+   "session": "SC4041_n1",
+   "title": "S04 \u00b7 night 1",
+   "file": "sleep-SC4041_n1.json"
+  },
+  {
+   "id": "emo-M01-1",
+   "kind": "emotion",
+   "subject": "M01",
+   "session": "1",
+   "title": "M01 \u00b7 song 1",
+   "file": "emo-M01-1.json"
+  },
+  {
+   "id": "emo-M01-2",
+   "kind": "emotion",
+   "subject": "M01",
+   "session": "2",
+   "title": "M01 \u00b7 song 2",
+   "file": "emo-M01-2.json"
+  },
+  {
+   "id": "emo-M01-3",
+   "kind": "emotion",
+   "subject": "M01",
+   "session": "3",
+   "title": "M01 \u00b7 song 3",
+   "file": "emo-M01-3.json"
+  },
+  {
+   "id": "emo-M01-4",
+   "kind": "emotion",
+   "subject": "M01",
+   "session": "4",
+   "title": "M01 \u00b7 song 4",
+   "file": "emo-M01-4.json"
+  },
+  {
+   "id": "emo-M01-5",
+   "kind": "emotion",
+   "subject": "M01",
+   "session": "5",
+   "title": "M01 \u00b7 song 5",
+   "file": "emo-M01-5.json"
+  },
+  {
+   "id": "emo-M01-6",
+   "kind": "emotion",
+   "subject": "M01",
+   "session": "6",
+   "title": "M01 \u00b7 song 6",
+   "file": "emo-M01-6.json"
+  },
+  {
+   "id": "emo-M02-1",
+   "kind": "emotion",
+   "subject": "M02",
+   "session": "1",
+   "title": "M02 \u00b7 song 1",
+   "file": "emo-M02-1.json"
+  },
+  {
+   "id": "emo-M02-2",
+   "kind": "emotion",
+   "subject": "M02",
+   "session": "2",
+   "title": "M02 \u00b7 song 2",
+   "file": "emo-M02-2.json"
+  },
+  {
+   "id": "emo-M02-3",
+   "kind": "emotion",
+   "subject": "M02",
+   "session": "3",
+   "title": "M02 \u00b7 song 3",
+   "file": "emo-M02-3.json"
+  },
+  {
+   "id": "emo-M02-4",
+   "kind": "emotion",
+   "subject": "M02",
+   "session": "4",
+   "title": "M02 \u00b7 song 4",
+   "file": "emo-M02-4.json"
+  },
+  {
+   "id": "emo-M02-5",
+   "kind": "emotion",
+   "subject": "M02",
+   "session": "5",
+   "title": "M02 \u00b7 song 5",
+   "file": "emo-M02-5.json"
+  },
+  {
+   "id": "emo-M02-6",
+   "kind": "emotion",
+   "subject": "M02",
+   "session": "6",
+   "title": "M02 \u00b7 song 6",
+   "file": "emo-M02-6.json"
+  },
+  {
+   "id": "emo-M03-1",
+   "kind": "emotion",
+   "subject": "M03",
+   "session": "1",
+   "title": "M03 \u00b7 song 1",
+   "file": "emo-M03-1.json"
+  },
+  {
+   "id": "emo-M03-2",
+   "kind": "emotion",
+   "subject": "M03",
+   "session": "2",
+   "title": "M03 \u00b7 song 2",
+   "file": "emo-M03-2.json"
+  },
+  {
+   "id": "emo-M03-3",
+   "kind": "emotion",
+   "subject": "M03",
+   "session": "3",
+   "title": "M03 \u00b7 song 3",
+   "file": "emo-M03-3.json"
+  },
+  {
+   "id": "emo-M03-4",
+   "kind": "emotion",
+   "subject": "M03",
+   "session": "4",
+   "title": "M03 \u00b7 song 4",
+   "file": "emo-M03-4.json"
+  },
+  {
+   "id": "emo-M03-5",
+   "kind": "emotion",
+   "subject": "M03",
+   "session": "5",
+   "title": "M03 \u00b7 song 5",
+   "file": "emo-M03-5.json"
+  },
+  {
+   "id": "emo-M03-6",
+   "kind": "emotion",
+   "subject": "M03",
+   "session": "6",
+   "title": "M03 \u00b7 song 6",
+   "file": "emo-M03-6.json"
+  },
+  {
+   "id": "emo-M04-1",
+   "kind": "emotion",
+   "subject": "M04",
+   "session": "1",
+   "title": "M04 \u00b7 song 1",
+   "file": "emo-M04-1.json"
+  },
+  {
+   "id": "emo-M04-2",
+   "kind": "emotion",
+   "subject": "M04",
+   "session": "2",
+   "title": "M04 \u00b7 song 2",
+   "file": "emo-M04-2.json"
+  },
+  {
+   "id": "emo-M04-3",
+   "kind": "emotion",
+   "subject": "M04",
+   "session": "3",
+   "title": "M04 \u00b7 song 3",
+   "file": "emo-M04-3.json"
+  },
+  {
+   "id": "emo-M04-4",
+   "kind": "emotion",
+   "subject": "M04",
+   "session": "4",
+   "title": "M04 \u00b7 song 4",
+   "file": "emo-M04-4.json"
+  },
+  {
+   "id": "emo-M04-5",
+   "kind": "emotion",
+   "subject": "M04",
+   "session": "5",
+   "title": "M04 \u00b7 song 5",
+   "file": "emo-M04-5.json"
+  },
+  {
+   "id": "emo-M04-6",
+   "kind": "emotion",
+   "subject": "M04",
+   "session": "6",
+   "title": "M04 \u00b7 song 6",
+   "file": "emo-M04-6.json"
+  },
+  {
+   "id": "emo-M05-1",
+   "kind": "emotion",
+   "subject": "M05",
+   "session": "1",
+   "title": "M05 \u00b7 song 1",
+   "file": "emo-M05-1.json"
+  },
+  {
+   "id": "emo-M05-2",
+   "kind": "emotion",
+   "subject": "M05",
+   "session": "2",
+   "title": "M05 \u00b7 song 2",
+   "file": "emo-M05-2.json"
+  },
+  {
+   "id": "emo-M05-3",
+   "kind": "emotion",
+   "subject": "M05",
+   "session": "3",
+   "title": "M05 \u00b7 song 3",
+   "file": "emo-M05-3.json"
+  },
+  {
+   "id": "emo-M05-4",
+   "kind": "emotion",
+   "subject": "M05",
+   "session": "4",
+   "title": "M05 \u00b7 song 4",
+   "file": "emo-M05-4.json"
+  },
+  {
+   "id": "emo-M05-5",
+   "kind": "emotion",
+   "subject": "M05",
+   "session": "5",
+   "title": "M05 \u00b7 song 5",
+   "file": "emo-M05-5.json"
+  },
+  {
+   "id": "emo-M05-6",
+   "kind": "emotion",
+   "subject": "M05",
+   "session": "6",
+   "title": "M05 \u00b7 song 6",
+   "file": "emo-M05-6.json"
+  }
+ ]
+}

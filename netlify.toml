@@ -1,0 +1,8 @@
+[build]
+  publish = "app"
+  command = ""
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"

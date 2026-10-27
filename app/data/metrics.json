@@ -1,0 +1,225 @@
+{
+ "demo": true,
+ "sleep": {
+  "model": "HistGradientBoosting + HMM/Viterbi",
+  "classes": [
+   "W",
+   "N1",
+   "N2",
+   "N3",
+   "REM"
+  ],
+  "n_subjects": 5,
+  "n_epochs": 2969,
+  "raw": {
+   "accuracy": 0.9848,
+   "balanced_accuracy": 0.9355,
+   "kappa": 0.9784,
+   "macro_f1": 0.947,
+   "per_class_f1": {
+    "W": 1.0,
+    "N1": 0.7805,
+    "N2": 0.9768,
+    "N3": 0.9976,
+    "REM": 0.9802
+   },
+   "confusion": [
+    [
+     1296,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     64,
+     21,
+     0,
+     5
+    ],
+    [
+     0,
+     8,
+     780,
+     0,
+     4
+    ],
+    [
+     0,
+     0,
+     1,
+     413,
+     0
+    ],
+    [
+     0,
+     2,
+     3,
+     1,
+     371
+    ]
+   ]
+  },
+  "smoothed": {
+   "accuracy": 0.9929,
+   "balanced_accuracy": 0.977,
+   "kappa": 0.9899,
+   "macro_f1": 0.9787,
+   "per_class_f1": {
+    "W": 0.9988,
+    "N1": 0.9153,
+    "N2": 0.9899,
+    "N3": 1.0,
+    "REM": 0.9895
+   },
+   "confusion": [
+    [
+     1293,
+     1,
+     0,
+     0,
+     2
+    ],
+    [
+     0,
+     81,
+     7,
+     0,
+     2
+    ],
+    [
+     0,
+     5,
+     784,
+     0,
+     3
+    ],
+    [
+     0,
+     0,
+     0,
+     414,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     376
+    ]
+   ]
+  },
+  "transition": [
+   [
+    0.988,
+    0.009,
+    0.001,
+    0.001,
+    0.001
+   ],
+   [
+    0.013,
+    0.688,
+    0.273,
+    0.013,
+    0.013
+   ],
+   [
+    0.002,
+    0.002,
+    0.931,
+    0.033,
+    0.033
+   ],
+   [
+    0.003,
+    0.003,
+    0.063,
+    0.929,
+    0.003
+   ],
+   [
+    0.032,
+    0.04,
+    0.003,
+    0.003,
+    0.922
+   ]
+  ]
+ },
+ "emotion": {
+  "model": "HistGradientBoosting on baseline-normalised features",
+  "n_subjects": 5,
+  "n_songs": 30,
+  "cross_subject": {
+   "valence": {
+    "window": {
+     "balanced_accuracy": 0.8607,
+     "auc": 0.8545,
+     "accuracy": 0.8599,
+     "n": 1770,
+     "majority_rate": 0.5333
+    },
+    "song": {
+     "balanced_accuracy": 0.9018,
+     "auc": 0.8348,
+     "accuracy": 0.9,
+     "n": 30,
+     "majority_rate": 0.5333
+    }
+   },
+   "arousal": {
+    "window": {
+     "balanced_accuracy": 0.7214,
+     "auc": 0.7749,
+     "accuracy": 0.7232,
+     "n": 1770,
+     "majority_rate": 0.5667
+    },
+    "song": {
+     "balanced_accuracy": 0.767,
+     "auc": 0.7964,
+     "accuracy": 0.7667,
+     "n": 30,
+     "majority_rate": 0.5667
+    }
+   }
+  },
+  "within_subject": {
+   "valence": {
+    "window": {
+     "balanced_accuracy": 0.8196,
+     "auc": 0.8264,
+     "accuracy": 0.8198,
+     "n": 1770,
+     "majority_rate": 0.5333
+    },
+    "song": {
+     "balanced_accuracy": 0.7991,
+     "auc": 0.8348,
+     "accuracy": 0.8,
+     "n": 30,
+     "majority_rate": 0.5333
+    }
+   },
+   "arousal": {
+    "window": {
+     "balanced_accuracy": 0.7432,
+     "auc": 0.7177,
+     "accuracy": 0.7559,
+     "n": 1770,
+     "majority_rate": 0.5667
+    },
+    "song": {
+     "balanced_accuracy": 0.7579,
+     "auc": 0.733,
+     "accuracy": 0.7667,
+     "n": 30,
+     "majority_rate": 0.5667
+    }
+   }
+  }
+ }
+}

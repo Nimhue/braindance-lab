@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Braindance Lab</title>
+  <meta name="description" content="Play back real EEG recordings — a night of sleep or a song — and watch a model read the brain state, window by window.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Familjen+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Braindance Lab</h1>
+      <p class="tagline">Recorded minds, played back one window at a time.</p>
+    </div>
+    <nav class="tapes" aria-label="Choose a recording">
+      <div class="tape-group">
+        <span class="group-label">Nights of sleep</span>
+        <div class="chips" id="sleep-tapes"></div>
+      </div>
+      <div class="tape-group">
+        <span class="group-label">Songs</span>
+        <div class="chips" id="emotion-tapes"></div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="demo-banner" id="demo-banner" hidden>
+    Synthetic demo data. These tapes come from a signal generator, not from people — the scores below say nothing about real EEG.
+    Run the Databricks pipeline and replace <code>app/data/</code> to load the real recordings.
+  </div>
+
+  <main>
+    <section class="deck" aria-label="Signal">
+      <div class="deck-head">
+        <div class="readout" aria-live="polite">
+          <span class="readout-state" id="readout-state">—</span>
+          <span class="readout-sub" id="readout-sub"></span>
+        </div>
+        <div class="controls">
+          <button class="play" id="play" aria-label="Play">Play</button>
+          <div class="layers" role="radiogroup" aria-label="Layer">
+            <button role="radio" aria-checked="true" data-layer="raw">Raw signal</button>
+            <button role="radio" aria-checked="false" data-layer="bands">Frequency bands</button>
+            <button role="radio" aria-checked="false" data-layer="state">Model reading</button>
+          </div>
+        </div>
+      </div>
+      <div class="scope-wrap">
+        <canvas id="scope" aria-label="Scrolling EEG waveform"></canvas>
+        <div class="scope-legend" id="scope-legend"></div>
+      </div>
+      <p class="clock" id="clock"></p>
+    </section>
+
+    <section class="timeline panel" aria-label="Timeline">
+      <div class="panel-head">
+        <h2 id="timeline-title">Hypnogram</h2>
+        <label class="toggle" id="smooth-toggle-wrap">
+          <input type="checkbox" id="smooth-toggle" checked> Smoothed by sleep grammar
+        </label>
+      </div>
+      <canvas id="hypnogram" class="timeline-canvas" aria-label="Expert-scored versus predicted sleep stages across the night"></canvas>
+      <div id="circumplex-wrap" hidden></div>
+      <p class="hint" id="timeline-hint">Click anywhere on the night to jump there. Arrow keys step, space plays.</p>
+    </section>
+
+    <aside class="side">
+      <section class="panel" aria-label="Neural sync">
+        <div class="panel-head"><h2>Neural sync</h2></div>
+        <svg id="radar" viewBox="0 0 260 240" role="img" aria-label="Radar of band power and coherence"></svg>
+        <p class="hint" id="radar-hint"></p>
+      </section>
+      <section class="panel" aria-label="How well the model reads">
+        <div class="panel-head"><h2>How well it reads</h2></div>
+        <div id="metrics"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <p>Sleep: <a href="https://physionet.org/content/sleep-edfx/1.0.0/">Sleep-EDF Expanded</a>, PhysioNet. Emotion: MET music-induced EEG, OpenNeuro.
+      Pipeline on Databricks · <a href="https://github.com/Nimhue">source on GitHub</a>.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+# Databricks Asset Bundle — deploys the pipeline as one scheduled job.
+#   databricks bundle validate
+#   databricks bundle deploy -t dev
+#   databricks bundle run braindance_pipeline -t dev
+#
+# The wheel built from ./src is attached to every task, so pandas UDFs on the
+# workers import `braindance` normally. (Interactive runs rely on the
+# cloudpickle by-value registration in 00_config instead.)
+
+bundle:
+  name: braindance-lab
+
+artifacts:
+  braindance_whl:
+    type: whl
+    path: .
+    build: python -m pip wheel --no-deps -w dist .
+
+variables:
+  node_type:
+    description: Worker VM size (Azure default; use e.g. i3.xlarge on AWS)
+    default: Standard_D8ds_v5
+
+resources:
+  jobs:
+    braindance_pipeline:
+      name: braindance-pipeline
+      max_concurrent_runs: 1
+      job_clusters:
+        - job_cluster_key: eeg
+          new_cluster:
+            spark_version: 15.4.x-cpu-ml-scala2.12   # ML runtime: sklearn, mlflow, matplotlib included
+            node_type_id: ${var.node_type}
+            num_workers: 2
+            data_security_mode: SINGLE_USER
+            spark_conf:
+              spark.sql.execution.arrow.pyspark.enabled: "true"
+      tasks:
+        - task_key: bronze_sleep_edf
+          job_cluster_key: eeg
+          notebook_task: { notebook_path: ./notebooks/01_bronze_sleep_edf.py }
+          libraries: [{ whl: ./dist/*.whl }]
+
+        - task_key: bronze_met
+          job_cluster_key: eeg
+          notebook_task: { notebook_path: ./notebooks/02_bronze_met.py }
+          libraries: [{ whl: ./dist/*.whl }]
+
+        - task_key: silver_epochs
+          depends_on: [{ task_key: bronze_sleep_edf }, { task_key: bronze_met }]
+          job_cluster_key: eeg
+          notebook_task: { notebook_path: ./notebooks/03_silver_epochs.py }
+          libraries: [{ whl: ./dist/*.whl }]
+
+        - task_key: gold_features
+          depends_on: [{ task_key: silver_epochs }]
+          job_cluster_key: eeg
+          notebook_task: { notebook_path: ./notebooks/04_gold_features.py }
+          libraries: [{ whl: ./dist/*.whl }]
+
+        - task_key: train_sleep
+          depends_on: [{ task_key: gold_features }]
+          job_cluster_key: eeg
+          notebook_task: { notebook_path: ./notebooks/05_train_sleep.py }
+          libraries: [{ whl: ./dist/*.whl }]
+
+        - task_key: train_emotion
+          depends_on: [{ task_key: gold_features }]
+          job_cluster_key: eeg
+          notebook_task: { notebook_path: ./notebooks/06_train_emotion.py }
+          libraries: [{ whl: ./dist/*.whl }]
+
+        - task_key: export_tapes
+          depends_on: [{ task_key: train_sleep }, { task_key: train_emotion }]
+          job_cluster_key: eeg
+          notebook_task: { notebook_path: ./notebooks/07_export_tapes.py }
+          libraries: [{ whl: ./dist/*.whl }]
+
+targets:
+  dev:
+    mode: development
+    default: true
+    # workspace:
+    #   host: https://adb-<workspace-id>.<n>.azuredatabricks.net

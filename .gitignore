@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+.databricks/
+# raw data never goes in git
+*.edf
+*.vhdr
+*.eeg
+*.vmrk
+*.set
+*.fdt
